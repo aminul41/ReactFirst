@@ -1,4 +1,7 @@
-function SortingButtons({ handleSort }) {
+import { useContext } from "react";
+import { TodoContext } from "../context/todoContext";
+function SortingButtons() {
+  const { handleSort } = useContext(TodoContext);
   return (
     <div>
       <button onClick={() => handleSort("all")}>All</button>

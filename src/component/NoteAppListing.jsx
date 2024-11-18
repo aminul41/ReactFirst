@@ -1,9 +1,8 @@
-export default function NoteAppListing({
-  editHandler,
-  deleteHandler,
-  checkHandler,
-  filteredItems,
-}) {
+import { useContext } from "react";
+import { TodoContext } from "../context/todoContext";
+export default function NoteAppListing() {
+  const { editHandler, deleteHandler, checkHandler, filteredItems } =
+    useContext(TodoContext);
   return (
     <>
       <ul className="noteListWrapper">

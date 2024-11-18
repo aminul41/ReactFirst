@@ -1,10 +1,8 @@
-function NoteAppInputForm({
-  editMode,
-  dataTitle,
-  setDataTitle,
-  updateHandler,
-  createData,
-}) {
+import { useContext } from "react";
+import { TodoContext } from "../context/todoContext";
+export default function NoteAppInputForm() {
+  const { editMode, dataTitle, setDataTitle, updateHandler, createData } =
+    useContext(TodoContext);
   return (
     <div>
       <form
@@ -23,5 +21,3 @@ function NoteAppInputForm({
     </div>
   );
 }
-
-export default NoteAppInputForm;

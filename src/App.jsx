@@ -1,10 +1,13 @@
 import "./App.css";
 import NoteApp from "./component/NoteApp";
+import TodoProvider from "./context/todoContext";
 
 function App() {
   return (
     <>
-      <NoteApp />
+      <TodoProvider>
+        <NoteApp />
+      </TodoProvider>
     </>
   );
 }
