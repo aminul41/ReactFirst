@@ -1,6 +1,7 @@
 import { createContext, useReducer } from "react";
+import { initialState, todoReducer } from "./todoReducer";
 export const TodoContext = createContext();
-const initialState = {
+/* const initialState = {
   dataTitle: "",
   data: [],
   editingNow: null,
@@ -83,7 +84,7 @@ const todoReducer = (state, action) => {
     default:
       return state;
   }
-};
+}; */
 export default function TodoProvider({ children }) {
   const [todoStates, dispatch] = useReducer(todoReducer, initialState);
 
