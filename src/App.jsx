@@ -1,6 +1,6 @@
 import "./App.css";
 import NoteApp from "./component/NoteApp";
-import TodoProvider from "./context/todoContext";
+import TodoProvider from "./component/context/todoContext";
 
 function App() {
   return (
@@ -11,5 +11,4 @@ function App() {
     </>
   );
 }
-
 export default App;

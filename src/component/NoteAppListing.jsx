@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { TodoContext } from "../context/todoContext";
+import { TodoContext } from "./context/todoContext";
+
 export default function NoteAppListing() {
-  const { editHandler, deleteHandler, checkHandler, filteredItems } =
-    useContext(TodoContext);
+  const { filteredItems, dispatch } = useContext(TodoContext);
   return (
     <>
       <ul className="noteListWrapper">
@@ -13,7 +13,9 @@ export default function NoteAppListing() {
                 type="checkbox"
                 name="checkBox"
                 checked={item.isCompleted}
-                onChange={() => checkHandler(item.id)}
+                onChange={() =>
+                  dispatch({ type: "change_iscompleted", payload: item })
+                }
                 className="checkbox-input"
               />
               <span className="checkbox"></span>
@@ -21,14 +23,19 @@ export default function NoteAppListing() {
             <span
               className={`item-title ${item.isCompleted ? "completed" : ""}`}
             >
-              {item.title}
+              {item.displayTitle || item.title}
             </span>
             <div className="actions">
-              <button onClick={() => editHandler(item.id)} className="edit-btn">
+              <button
+                onClick={() => dispatch({ type: "edit_todo", payload: item })}
+                className="edit-btn"
+              >
                 Edit
               </button>
               <button
-                onClick={() => deleteHandler(item.id)}
+                onClick={() =>
+                  dispatch({ type: "remove_todo", payload: item.id })
+                }
                 className="delete-btn"
               >
                 Delete
